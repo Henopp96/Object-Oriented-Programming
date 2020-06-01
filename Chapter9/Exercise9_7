@@ -1,0 +1,58 @@
+import java.util.Date;
+
+public class Exercise9_7 {
+	public static void main(String[] args) {
+		
+	}
+}
+	class Account{
+		int id = 1;
+		double balance = 1;
+		double annualInterestRate = 1;
+		Date dateCreated = new Date();
+		
+		Account() {
+			
+		}
+		Account(double newBalance, double newAnnualInterestRate){
+			balance = newBalance;
+			annualInterestRate = newAnnualInterestRate;
+		}
+		int getId() {
+			return id;
+		}
+		void setId(int newId) {
+			id = newId;
+		}
+		double getBalance () {
+			return balance;
+		}
+		void setBalance(double newBalance) {
+			balance = newBalance;
+		}
+		double getAnnualInterestRate() {
+			return annualInterestRate;
+		}
+		void setAnnualInterestRate(double newAnnualInterestRate) {
+			annualInterestRate = newAnnualInterestRate;
+		}
+		Date getDateCreated() {
+			return dateCreated;
+		}
+		void setDateCreated(Date newDateCreated) {
+			dateCreated = newDateCreated;
+		}
+		double getMonthlyInterestRate() {
+			return (annualInterestRate / 12);
+		}
+		double getMonthlyInterest() {
+			return ((balance) * (annualInterestRate / 12));
+		}
+		void withdraw(double amount) {
+			balance = balance - amount;
+		}
+		void deposit(double amount) {
+			balance = balance - amount;
+		}
+		
+	}

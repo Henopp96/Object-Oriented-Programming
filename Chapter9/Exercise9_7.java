@@ -12,11 +12,11 @@ public class Exercise9_7 {
 	public static void main(String[] args) {
 		Account account1 = new Account(20000 , 4.5 , 1122);
 		System.out.println("The balance for id " + account1.getId() + " is $" + 
-				account1.balance + " and the Annual Interest Rate is " + 
-				account1.annualInterestRate + "%. Which comes out to $" + (account1.balance * (account1.annualInterestRate / 100)));
+				account1.getBalance() + " and the Annual Interest Rate is " + 
+				account1.getAnnualInterestRate() + "%. Which comes out to $" + (account1.getBalance() * (account1.getAnnualInterestRate() / 100)));
 		
 		Account account2 = new Account(20000, 4.5 , 1122);
-		System.out.println("The original balance is $" + account2.balance + 
+		System.out.println("The original balance is $" + account2.getBalance() + 
 				" and the monthly interest on that would be $" + account2.getMonthlyInterest()
 				+ " and the date the account was created was " + account2.getDateCreated());
 			

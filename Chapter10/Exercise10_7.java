@@ -10,15 +10,22 @@ import java.util.Scanner;
 public class Exercise10_7 {
 	public static void main(String[] args) {
 		boolean run = true;
+		Account[] accountArray = new Account[10];
+		for 
+		(int i = 0; i<accountArray.length; i++) {
+			accountArray[i] = new Account(100, i);
+		}
 		while (run) {
 			Scanner input = new Scanner(System.in);
 
 
 
 
-			System.out.println("Enter an id: ");
+			System.out.println("Enter an id (1-9): ");
 			int id = input.nextInt();
-			Account account1 = new Account(100, id);
+
+
+
 			while (run) {
 				if(id <= 9) {
 					System.out.println("Main Menu");
@@ -28,23 +35,28 @@ public class Exercise10_7 {
 					System.out.println("4: Exit");
 				}
 				else {
-					System.out.println("Enter valid id: ");
+					System.out.println("Enter valid id (1-9): ");
 					id = input.nextInt();
+					System.out.println("Main Menu");
+					System.out.println("1: Check Balance");
+					System.out.println("2: Withdraw");
+					System.out.println("3: Deposit");
+					System.out.println("4: Exit");
 
 				}
 				int option = input.nextInt();
 				if (option == 1) {
-					System.out.println("Your balance is $" + account1.getBalance());
+					System.out.println("Your balance is $" + accountArray[id].getBalance());
 				}
 				if (option == 2) {
 					System.out.println("Enter an amount to withdraw: ");
-					account1.getwithdraw(input.nextDouble());
-					System.out.println("After withdrawal new balance is $" + account1.getBalance());
+					accountArray[id].getwithdraw(input.nextDouble());
+					System.out.println("After withdrawal new balance is $" + accountArray[id].getBalance());
 				}
 				if (option == 3) {
 					System.out.println("Enter an amount to deposit: ");
-					account1.getdeposit(input.nextDouble());
-					System.out.println("After deposit new balance is $" + account1.getBalance());
+					accountArray[id].getdeposit(input.nextDouble());
+					System.out.println("After deposit new balance is $" + accountArray[id].getBalance());
 				}
 				if (option == 4) {
 					break;
@@ -87,4 +99,3 @@ class Account{
 	}
 
 }
-

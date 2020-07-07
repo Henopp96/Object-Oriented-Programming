@@ -1,0 +1,169 @@
+import java.util.Scanner;
+/*
+ * Cody Henopp
+ * 
+ * 07/07/2020
+ * 
+ * This program pulls from either the savings or checking account and you will 
+ * follow instructions on either one.
+ */
+
+public class Exercise11_3 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter in a (1) for checking and enter in a (2) for savings: ");
+		int option1 = input.nextInt();
+		if (option1 == 1) {
+		System.out.println("Enter in your checking account number here(1-9): ");
+		int checkingid = input.nextInt();
+		CheckingAccount account1 = new CheckingAccount(checkingid, 200.0, 2.5);
+		System.out.println("The current balance of checking is: " + account1.getBalance());
+		System.out.println("Would you like to withdraw(1) or deposit(2)?");
+		int option2 = input.nextInt();
+		if (option2 == 1) {
+			System.out.println("Enter in an amount to withdraw: ");
+			account1.getwithdraw(input.nextDouble());
+			System.out.println("New balance is: " + account1.getBalance());
+		}
+		else {
+			System.out.println("Enter in an amount to deposit: ");
+			account1.getdeposit(input.nextDouble());
+			System.out.println("New balance is: " + account1.getBalance());
+		}
+		System.out.println("The annual interest rate is: " + account1.getAnnualInterestRate() + "%");
+		}
+		else {
+		System.out.println("Enter in your savings account number here(1-9): ");
+		int savingsid = input.nextInt();
+		SavingsAccount account2 = new SavingsAccount(savingsid, 200.0, 4.5);
+		System.out.println("The current balance of savings is: " + account2.getBalance());
+		System.out.println("Would you like to withdraw(1) or deposit(2)?");
+		int option3 = input.nextInt();
+		if (option3 == 1) {
+			System.out.println("Enter in an amount to withdraw(cannot be more than balance): ");
+			account2.getwithdraw(input.nextDouble());
+			System.out.println("New balance is: " + account2.getBalance());
+		}
+		else {
+			System.out.println("Enter in an amount to deposit: ");
+			account2.getdeposit(input.nextDouble());
+			System.out.println("New balance is: " + account2.getBalance());
+		}
+		System.out.println("The annual Interest rate is: " + account2.getAnnualInterestRate() + "%");
+		}
+		
+		
+	}
+}
+class Account{
+	int id = 0;
+	java.util.Date dateCreated;
+
+	Account() {
+
+	}
+	Account(int id){
+		this.id = id;
+	}
+	int getId() {
+		return id;
+	}
+	void setId(int id) {
+		this.id = id;
+	}
+	java.util.Date dateCreated() {
+		return dateCreated;
+	}
+
+}
+class CheckingAccount
+extends Account{
+	int id = 0;
+	double balance = 0;
+	double annualInterestRate = 0;
+	java.util.Date dateCreated;
+	
+	CheckingAccount(){
+	
+	}
+	CheckingAccount(int id, double balance, double annualInterestRate){
+		this.id = id;
+		this.balance = balance;
+		this.annualInterestRate = annualInterestRate;
+	}
+
+	int getId() {
+		return id;
+	}
+	void setId(int id) {
+		this.id = id;
+	}
+	double getBalance() {
+		return balance;
+	}
+	void setBalance(double balance) {
+		this.balance = balance;
+	}
+	double getAnnualInterestRate() {
+		return annualInterestRate;
+	}
+	void setAnnualInterestRate(double annualInterestRate) {
+		this.annualInterestRate = annualInterestRate;
+	}
+	java.util.Date dateCreated() {
+		return dateCreated;
+	}
+	double getwithdraw(double amount) {
+		balance = balance - amount;
+		return balance;	
+	}
+	double getdeposit(double amount) {
+		balance = balance + amount;
+		return balance;
+	}
+}
+class SavingsAccount
+extends Account{
+	int id = 0;
+	double balance = 0;
+	double annualInterestRate = 0;
+	java.util.Date dateCreated;
+	SavingsAccount(){
+		
+	}
+	SavingsAccount(int id, double balance, double annualInterestRate){
+		this.id = id;
+		this.balance = balance;
+		this.annualInterestRate = annualInterestRate;
+	}
+
+	int getId() {
+		return id;
+	}
+	void setId(int id) {
+		this.id = id;
+	}
+	double getBalance() {
+		return balance;
+	}
+	void setBalance(double balance) {
+		this.balance = balance;
+	}
+	double getAnnualInterestRate() {
+		return annualInterestRate;
+	}
+	void setAnnualInterestRate(double annualInterestRate) {
+		this.annualInterestRate = annualInterestRate;
+	}
+	java.util.Date dateCreated() {
+		return dateCreated;
+	}
+	double getwithdraw(double amount) {
+		balance = balance - amount;
+		return balance;	
+	}
+	double getdeposit(double amount) {
+		balance = balance + amount;
+		return balance;
+	}
+}

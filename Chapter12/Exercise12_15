@@ -1,0 +1,28 @@
+import java.util.Scanner;
+/*
+ * Cody Henopp
+ * 
+ * 07/15/2020
+ * 
+ * This program creates a text file with 100 integers if the file doesn't already exist.
+ */
+public class Exercise12_15 {
+	public static void main(String[] args) throws Exception {
+		int [] numbers = new int[100];
+		
+		java.io.File file = new java.io.File("Exercise12_15.txt");
+		if (file.exists()) {
+			System.out.println("File already exists!");
+			System.exit(0);
+		}
+		try (java.io.PrintWriter output = new java.io.PrintWriter(file);){
+			for (int line = 0; line < numbers.length; line++) {
+				numbers[line] = (int)(Math.random() * 100);
+				output.print(" " + numbers[line]);
+			}
+			
+		}
+		 
+		
+	}
+}
